@@ -19,8 +19,10 @@ def build_free_intervals(timetable,
     today = datetime.datetime.today()
 
     def get_datetime_from_time(time_):
+        hour, minute = time_.split(':')
+        timestring = f"{('0' + hour)[-2:]}:{('0' + minute)[-2:]}"
         return datetime.datetime.combine(
-            today, datetime.time.fromisoformat(time_)
+            today, datetime.time.fromisoformat(timestring)
         )
 
     def sort_timetable(timetable_):
